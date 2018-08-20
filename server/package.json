@@ -1,0 +1,41 @@
+{
+  "name": "vt-server",
+  "version": "1.0.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tom-weatherhead/vt-server.git"
+  },
+  "description": "Virginia Tech project - MongoDB / REST Web service",
+  "main": "src/app.js",
+  "homepage": "https://github.com/tom-weatherhead/vt-server#readme",
+  "bugs": {
+    "url": "https://github.com/tom-weatherhead/vt-server/issues"
+  },
+  "scripts": {
+    "in": "node src/ingest.js",
+    "lint": "grunt eslint",
+    "mocha": "grunt mochaTest",
+    "nsp": "grunt nsp",
+    "start": "node src/server.js",
+    "test": "grunt"
+  },
+  "dependencies": {
+    "app-root-path": "^2.1.0",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "csv-parse": "^2.5.0",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.3"
+  },
+  "keywords": [
+    "Express.js",
+    "MongoDB",
+    "REST"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Tom Weatherhead",
+    "url": "https://github.com/tom-weatherhead"
+  }
+}

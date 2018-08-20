@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  app:
+    build: '.'
+    ports:
+      - 3002:80
+    links:
+      - server
+    depends_on:
+      - server
+
+  server:
+    build: ../vt-server/
+    links:
+      - database
+    volumes:
+      - ../vt-server/:/usr/src/server
+    depends_on:
+      - database
+
+  database:
+    image: mongo:latest
