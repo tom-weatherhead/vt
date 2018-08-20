@@ -2,19 +2,21 @@ version: '2' # Specify the docker-compose version number
 
 # Define the services/containers to be run
 services:
-  angular: # The name of the first service
-    build: client # specify the directory of the Dockerfile
+  client: # The name of the first service
+    build: client # Specify the directory of the Dockerfile
     ports:
-      - "4200:4200" # Specify port forwarding
+      - "4200:4200" # Specify the port to be forwarded
+    links:
+      - server
 
-  express: # The name of the second service
-    build: server # specify the directory of the Dockerfile
+  server: # The name of the second service
+    build: server # Specify the directory of the Dockerfile
     ports:
-      - "3000:3000" # Specify ports forwarding
+      - "3000:3000" # Specify the port to be forwarded
     links:
       - database
 
   database: # The name of the third service
-    image: mongo # specify image to build container from
+    image: mongo # Specify the image from which to build the container
     ports:
-      - "27017:27017" # Specify port forwarding
+      - "27017:27017" # Specify the port to be forwarded

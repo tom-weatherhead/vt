@@ -16,6 +16,14 @@ app.use(bodyParser.json());
 
 //app.use(cors());
 
+// Cross Origin middleware (Chris Ganga)
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
+/*
 app.options('/*', function(req, res, next) {
 	console.log('Express.js OPTIONS request handler');
 	res.header('Access-Control-Allow-Origin', '*');
@@ -23,6 +31,7 @@ app.options('/*', function(req, res, next) {
 	res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 	res.sendStatus(200);
 });
+*/
 
 //app.disable('etag');	// Prevent HTTP 304 Not Modified. See https://stackoverflow.com/questions/18811286/nodejs-express-cache-and-304-status-code
 
